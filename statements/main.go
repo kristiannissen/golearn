@@ -41,8 +41,14 @@ func main() {
 	// Will print L is 9, the lenght of the bytes
 	// written
 	fmt.Printf("L is %d \n", l)
+	// Also often seen syntax
+	// in this case nothing is printed
+	if k, e := fmt.Printf("Hello %d \n", l); e != nil {
+		fmt.Errorf("Err %s - %d", e, k)
+	}
 }
 
+// isFour() returns 4
 func isFour() int {
 	return 4
 }
