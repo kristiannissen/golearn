@@ -2,7 +2,9 @@
 // map type
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	// Create a new map
