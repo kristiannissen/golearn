@@ -12,7 +12,7 @@ Der er ingen entydig logik, anbefalingen er, at for ikke at kopiere store data s
 
 Hvis en metode kan modificere data som dens receiver peger på, skal du bruge en pointer.
 
-```
+```golang
 var list []string
 // l modificeres
 func addItem(s string, l *[]string) {
