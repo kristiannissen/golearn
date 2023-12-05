@@ -22,7 +22,7 @@ func addItem(s string, l *[]string) {
 
 Hvis en metode ikke modificerer data er der ingen grund til at bruge en pointer.
 
-```
+```golang
 var list []string
 // l modificeres ikke
 func listLen(l []string) int {
