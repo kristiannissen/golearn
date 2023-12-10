@@ -25,7 +25,7 @@ som giver os []string retur hvor alle kommandolinje værdierne er at finde i den
 **Eksempel**
 
 go run main.go Hello Kitty
-```
+```golang
 // Prints main, Hello, Kitty
 fmt.Println(strings.Join(os.Args, ", "))
 ```
