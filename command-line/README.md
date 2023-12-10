@@ -10,14 +10,14 @@ https://pkg.go.dev/flag@go1.21.5#pkg-overview
 	num := flag.Int("number", 1, "")
 ```
 Når variablerne er erklæret og defineret kaldes
-```
+```golang
 flag.Parse()
 ```
 for at parse command-line ind i de definerede variabler.
 
 ## os.Args
 Vi kan også bruge
-```
+```golang
 os.Args
 ```
 som giver os []string retur hvor alle kommandolinje værdierne er at finde i den indtastede rækkefølge.
