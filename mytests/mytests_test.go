@@ -1,9 +1,25 @@
 package mytests
 
 import (
+	"log"
+	"os"
 	"testing"
 )
 
+func setup() {
+	log.Println("Hello from setup()")
+}
+
+func teardown() {
+	log.Println("Goodbye from teardown()")
+}
+
+func TestMain(m *testing.M) {
+	setup()
+	code := m.Run()
+	teardown()
+	os.Exit(code)
+}
 func TestMakeSound(t *testing.T) {
 	// Simpel test
 	got := MakeSound()

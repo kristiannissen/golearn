@@ -1,6 +1,8 @@
 package mytests
 
-import "strings"
+import (
+	"strings"
+)
 
 func MakeSound() string {
 	return "What the fuck!"
