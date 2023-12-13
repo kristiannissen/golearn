@@ -1,7 +1,0 @@
---- FAIL: TestMakeSound (0.00s)
-    mytests_test.go:12: MakeSound() == ´What the fuck!´; want What the fuck!
-    mytests_test.go:28: Eat() got Fuck NO!, want Never, input Banana
-    mytests_test.go:28: Eat() got Never on pizza, want Never on Pizza, input Pineapple
-FAIL
-exit status 1
-FAIL	github.com/kristiannissen/golearn/mytests	0.002s
