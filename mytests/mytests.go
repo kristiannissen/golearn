@@ -23,3 +23,7 @@ func Eat(f string) string {
 
 	return resp
 }
+
+func Fart() string {
+	return "Fart all day, every day!"
+}
