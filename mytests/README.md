@@ -30,7 +30,7 @@ FAIL    github.com/kristiannissen/golearn/mytests       0.008s
 
 ## setup og teardown
 
-Hvis du skal bruge setup og teardown kan du gøre det på følgende måde
+Hvis du skal bruge ```setup()``` og ```teardown()``` kan du gøre det på følgende måde
 
 ```golang
 func setup() {
