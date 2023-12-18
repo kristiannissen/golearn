@@ -110,6 +110,8 @@ PASS
 ok      github.com/kristiannissen/golearn/mytests       0.844s
 ```
 
+I eksemplet her krydrer jeg det med at fortælle go test at min benchmark skal afvikles 3 gange ```-count=3```
+
 ## Examples
 
 En anden måde at skrive tests på er ved at bruge ExampleXXX. Her fanger ```go test``` alt der skrives til standard output ved f.eks. at anvende ```fmt.Println()``` og sammenligne det med en ```Output:``` strengen i ```ExampleXXX()``` funktionen
@@ -156,4 +158,4 @@ exit status 1
 FAIL    github.com/kristiannissen/golearn/mytests       0.002s
 ```
 
-Og jeg kan se at ExampleFart fejlede med besked som hvad go test fangede via ```fmt.Println()``` vist her i got: og værdien af min Output streng vises i want
+Og jeg kan se at ExampleFart fejlede med besked som hvad go test fangede via ```fmt.Println()``` vist her i ```got:``` og værdien af min ```Output``` streng vises i ```want:```
