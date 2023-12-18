@@ -1,17 +1,16 @@
 package mytests
 
 import (
-	"log"
 	"os"
 	"testing"
 )
 
 func setup() {
-	log.Println("Hello from setup()")
+	// log.Println("Hello from setup()")
 }
 
 func teardown() {
-	log.Println("Goodbye from teardown()")
+	// log.Println("Goodbye from teardown()")
 }
 
 func TestMain(m *testing.M) {
