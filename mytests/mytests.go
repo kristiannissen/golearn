@@ -9,7 +9,7 @@ func MakeSound() string {
 	// Output: What the fuck!
 }
 
-func Eat(f string) string {
+func Feed(f string) string {
 	var resp string
 
 	switch strings.ToLower(f) {

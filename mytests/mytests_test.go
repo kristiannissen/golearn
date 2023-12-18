@@ -20,6 +20,7 @@ func TestMain(m *testing.M) {
 	teardown()
 	os.Exit(code)
 }
+
 func TestMakeSound(t *testing.T) {
 	// Simpel test
 	got := MakeSound()
@@ -27,6 +28,9 @@ func TestMakeSound(t *testing.T) {
 	if got != "Hello Kitty" {
 		t.Errorf("MakeSound() == ´%s´; want What the fuck!", got)
 	}
+}
+
+func TestFeed(t *testing.T) {
 
 	// Test table eksempel
 	table := []struct {
@@ -38,10 +42,17 @@ func TestMakeSound(t *testing.T) {
 	}
 
 	for _, v := range table {
-		got := Eat(v.input)
+		got := Feed(v.input)
 
 		if got != v.want {
 			t.Errorf("Eat() got %s, want %s, input %s", got, v.want, v.input)
 		}
+	}
+}
+
+func TestFart(t *testing.T) {
+	// Alternativ syntax
+	if got, want := Fart(), "Fart all day, every day!"; got != want {
+		t.Errorf("Fart() got %s, want %s", got, want)
 	}
 }
