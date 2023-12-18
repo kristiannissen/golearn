@@ -64,7 +64,7 @@ FAIL    github.com/kristiannissen/golearn/mytests       0.005s
 
 ## Test Coverage
 
-```go test -cover``` fortæller mig at 87.5% af min kode er med i mine tests da jeg endnu ikke har skrevet en test til Fart() metoden
+```go test -cover``` fortæller mig at 87.5% af min kode er med i mine tests da jeg endnu ikke har skrevet en test til ```Fart()``` funktionen
 
 ```
 2023/12/18 08:57:13 Hello from setup()
