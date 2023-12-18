@@ -1,4 +1,6 @@
-```go test``` afvikler alle mine tests, i dette tilfælde fejler MakeSound() for at vise hvordan det ser ud
+# Go test & benchmarks
+
+```go test -v``` afvikler alle mine tests, i dette tilfælde fejler MakeSound() for at vise hvordan det ser ud
 
 ```golang
 func TestMakeSound(t *testing.T) {
@@ -14,11 +16,16 @@ func TestMakeSound(t *testing.T) {
 Følgende vises i terminalen
 
 ```
---- FAIL: TestMakeSound (0.00s)
+=== RUN   TestMakeSound
     mytests_test.go:28: MakeSound() == ´What the fuck!´; want What the fuck!
+--- FAIL: TestMakeSound (0.00s)
+=== RUN   TestFeed
+--- PASS: TestFeed (0.00s)
+=== RUN   TestFart
+--- PASS: TestFart (0.00s)
 FAIL
 exit status 1
-FAIL    github.com/kristiannissen/golearn/mytests       0.002s
+FAIL    github.com/kristiannissen/golearn/mytests       0.008s
 ```
 
 ## setup og teardown
@@ -73,3 +80,32 @@ FAIL	github.com/kristiannissen/golearn/mytests	0.004s
 ## Test coverage rapport
 
 Du kan få vist en coverage rapport med følgende kommando ```go test . -coverprofile=cover.out``` efterfulgt af ```go tool cover -html=cover.out``` som giver dig en HTML rapport
+
+## Benmark
+
+For at du kan benchmarke koden skal alle tests kunne gennemføres, jeg rettede i MakeSound() for at kunne se min benchmark
+
+```go test -bench=.``` afvikler benchmarks
+
+```golang
+func BenchmarkFart(b *testing.B) {
+        for i := 0; i < b.N; i++ {
+                Fart()
+        }
+}
+```
+
+b.N er et er antallet af gange koden afvikles for at få et retvisende resultat. I terminalen kan du så se at koden blev afviklet 1000000000 gange for at nå et resultat
+
+```
+go test -bench=. -count=3
+goos: linux
+goarch: amd64
+pkg: github.com/kristiannissen/golearn/mytests
+cpu: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+BenchmarkFart-8         1000000000               0.2496 ns/op
+BenchmarkFart-8         1000000000               0.2487 ns/op
+BenchmarkFart-8         1000000000               0.2527 ns/op
+PASS
+ok      github.com/kristiannissen/golearn/mytests       0.844s
+```

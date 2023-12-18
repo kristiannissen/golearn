@@ -24,7 +24,7 @@ func TestMakeSound(t *testing.T) {
 	// Simpel test
 	got := MakeSound()
 	//
-	if got != "Hello Kitty" {
+	if got != "What the fuck!" {
 		t.Errorf("MakeSound() == ´%s´; want What the fuck!", got)
 	}
 }
@@ -53,5 +53,11 @@ func TestFart(t *testing.T) {
 	// Alternativ syntax
 	if got, want := Fart(), "Fart all day, every day!"; got != want {
 		t.Errorf("Fart() got %s, want %s", got, want)
+	}
+}
+
+func BenchmarkFart(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		Fart()
 	}
 }
