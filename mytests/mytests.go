@@ -6,7 +6,6 @@ import (
 
 func MakeSound() string {
 	return "What the fuck!"
-	// Output: What the fuck!
 }
 
 func Feed(f string) string {

@@ -1,6 +1,7 @@
 package mytests
 
 import (
+	"fmt"
 	"os"
 	"testing"
 )
@@ -60,4 +61,9 @@ func BenchmarkFart(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		Fart()
 	}
+}
+
+func ExampleFart() {
+	fmt.Println(Fart())
+	// Output: Fart all day, every day
 }

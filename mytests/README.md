@@ -1,4 +1,4 @@
-# Go test & benchmarks
+# Go test, Examples & benchmarks
 
 ```go test -v``` afvikler alle mine tests, i dette tilfælde fejler MakeSound() for at vise hvordan det ser ud
 
@@ -109,3 +109,51 @@ BenchmarkFart-8         1000000000               0.2527 ns/op
 PASS
 ok      github.com/kristiannissen/golearn/mytests       0.844s
 ```
+
+## Examples
+
+En anden måde at skrive tests på er ved at bruge ExampleXXX. Her fanger ```go test``` alt der skrives til standard output ved f.eks. at anvende ```fmt.Println()``` og sammenligne det med en ```Output:``` strengen i ```ExampleXXX()``` funktionen
+
+```golang
+func ExampleFart() {
+        fmt.Println(Fart())
+        // Output: Fart all day, every day!
+}
+```
+
+Du kan bruge _test.go filerne til dine ExampleXXX som vist herover. Når ```go test -v``` afvikles kaldes ```ExampleXXX()``` på samme måde som ```TestXXX(t *testing.T)``` og output strengen sammenlignes med hvad der skrives til standard output
+
+```
+=== RUN   TestMakeSound
+--- PASS: TestMakeSound (0.00s)
+=== RUN   TestFeed
+--- PASS: TestFeed (0.00s)
+=== RUN   TestFart
+--- PASS: TestFart (0.00s)
+=== RUN   ExampleFart
+--- PASS: ExampleFart (0.00s)
+PASS
+ok      github.com/kristiannissen/golearn/mytests       0.004s
+```
+
+Hvis jeg ændrer i ```Output:``` strengen så testen fejler får jeg en fejl besked som den der vises her
+
+```
+=== RUN   TestMakeSound
+--- PASS: TestMakeSound (0.00s)
+=== RUN   TestFeed
+--- PASS: TestFeed (0.00s)
+=== RUN   TestFart
+--- PASS: TestFart (0.00s)
+=== RUN   ExampleFart
+--- FAIL: ExampleFart (0.00s)
+got:
+Fart all day, every day!
+want:
+Fart all day, every day
+FAIL
+exit status 1
+FAIL    github.com/kristiannissen/golearn/mytests       0.002s
+```
+
+Og jeg kan se at ExampleFart fejlede med besked som hvad go test fangede via ```fmt.Println()``` vist her i got: og værdien af min Output streng vises i want
