@@ -23,7 +23,7 @@ func main() {
 		panic("Fuck!")
 	}
 	// Opret filen og skriv så til den
-	f, err := os.Create(filepath.Join(wd, "lu-lu-txt"))
+	f, err := os.Create(filepath.Join(wd, "lu-lu.txt"))
 	if err != nil {
 		// PANIC!
 		panic("Shit!")
