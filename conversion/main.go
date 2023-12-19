@@ -2,7 +2,10 @@
 // you can find more at https://go.dev/ref/spec#Conversions
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
 	f := 42.0
@@ -30,5 +33,23 @@ func main() {
 	d := []byte("hello kitty")
 	fmt.Println(string(d))
 	// Will print ""
-	fmt.Print(d)
+	fmt.Println(d)
+	// Konverter til int
+	i, _ := strconv.Atoi("-43")
+	i++
+	fmt.Println("Atoi", i)
+	// Output: Atoi -42
+	// Konverter streng til boolean værdi
+	boo, _ := strconv.ParseBool("true")
+	if boo == true {
+		fmt.Println("Boo er sandt")
+	} else {
+		fmt.Println("Boo er ikke sandt")
+	}
+	// Output: Boo er sandt
+	// Konverter float med enten float64 eller float32
+	flo, _ := strconv.ParseFloat("3.123456", 64)
+	flo++
+	fmt.Println("Float", flo)
+	// Output: Float 4.123456
 }
