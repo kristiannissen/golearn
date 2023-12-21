@@ -67,4 +67,23 @@ func main() {
 	fmt.Println(sp[0], sp[len(sp)-1])
 	// Output: Hello doush!
 	// Fordi strengen splittes og første og sidste ord skrives
+
+	spa := strings.SplitAfter(sc, ",")
+	fmt.Println(spa[len(spa)-1])
+	// Output: doush!
+
+	var bob strings.Builder
+	bob.WriteString("Hello Kitty")
+	fmt.Println(bob)
+	// Output: {0xc0000a0e80 [72 101 108 108 111 32 75 105 116 116 121]}
+	fmt.Println(bob.String())
+	// Output: Hello Kitty
+
+	red := strings.NewReader("Hello Kitty")
+	fmt.Println(red)
+	// &{Hello Kitty 0 -1}
+
+	rep := strings.NewReplacer("H", "h", "d", "D")
+	fmt.Println(rep.Replace(sc))
+	// Output: hello Kitty, Doush!
 }
