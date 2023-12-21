@@ -36,4 +36,6 @@ func main() {
 	d := "22. Dec 2023 20:00"
 	fmt.Println(time.Parse("02. Jan 2006 15:04", d))
 	// Output: 2023-12-22 20:00:00 +0000 UTC <nil>
+	// Fjernes . fra 02 er output
+	// 0001-01-01 00:00:00 +0000 UTC
 }
