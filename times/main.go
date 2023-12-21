@@ -30,6 +30,10 @@ func main() {
 	fmt.Println(n.Weekday())
 	// Output: Thursday
 
-	p, _ := time.Parse("Jan 2, 2006 at 3:04pm (MST)", n.String())
-	fmt.Println(p)
+	fmt.Println(n.Format("Mon 02 2006 -07:00"))
+	// Output: Thu 21 2023 +01:00
+
+	d := "22. Dec 2023 20:00"
+	fmt.Println(time.Parse("02. Jan 2006 15:04", d))
+	// Output: 2023-12-22 20:00:00 +0000 UTC <nil>
 }
