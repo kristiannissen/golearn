@@ -1,6 +1,7 @@
 package mytests
 
 import (
+	"sort"
 	"strings"
 )
 
@@ -25,4 +26,11 @@ func Feed(f string) string {
 
 func Fart() string {
 	return "Fart all day, every day!"
+}
+
+func SortInator(num []int) []int {
+	sort.Slice(num, func(i, j int) bool {
+		return num[i] < num[j]
+	})
+	return num
 }

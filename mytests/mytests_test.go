@@ -3,6 +3,7 @@ package mytests
 import (
 	"fmt"
 	"os"
+	"sort"
 	"testing"
 )
 
@@ -55,6 +56,18 @@ func TestFart(t *testing.T) {
 	if got, want := Fart(), "Fart all day, every day!"; got != want {
 		t.Errorf("Fart() got %s, want %s", got, want)
 	}
+}
+
+// FIXME: Denne fejler!?
+func FuzzSortInator(f *testing.F) {
+	f.Add([]int{5, 6, 7})
+
+	f.Fuzz(func(t *testing.T, in []int) {
+		s := SortInator(in)
+		if sort.IntsAreSorted(s) != true {
+			t.Fatal("Not sorted", in, s)
+		}
+	})
 }
 
 func BenchmarkFart(b *testing.B) {
