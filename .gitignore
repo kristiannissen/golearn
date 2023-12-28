@@ -22,3 +22,5 @@ go.work
 
 # Project specific files
 *.txt
+*.db
+*.sql
