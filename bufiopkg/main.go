@@ -8,6 +8,21 @@ import (
 	"strings"
 )
 
+func ReadUntil() {
+	f, err := os.Open("file.txt")
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer f.Close()
+
+	r := bufio.NewReader(f)
+	d, e := r.ReadString('\n')
+	if e != nil {
+		fmt.Println(e)
+	}
+	fmt.Println(d)
+}
+
 func ReadFile() {
 	f, err := os.Open("file.txt")
 	if err != nil {
@@ -45,4 +60,6 @@ func main() {
 	ReadFile()
 
 	WriteFile()
+
+	ReadUntil()
 }
