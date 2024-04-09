@@ -4,9 +4,26 @@ import (
 	"bufio"
 	"fmt"
 	"io"
+	"log"
 	"os"
 	"strings"
 )
+
+func ReadScanner() {
+	f, err := os.Open("file.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer f.Close()
+
+	s := bufio.NewScanner(f)
+	for s.Scan() {
+		fmt.Println("fmt:", s.Text())
+	}
+	if err = s.Err(); err != nil {
+		log.Fatal(err)
+	}
+}
 
 func ReadUntil() {
 	f, err := os.Open("file.txt")
@@ -23,20 +40,25 @@ func ReadUntil() {
 	fmt.Println(d)
 }
 
-func ReadFile() {
-	f, err := os.Open("file.txt")
+// ReadFile uses bufio to read the content of the file passed as n
+// the content is written to w. W needs to implement https://pkg.go.dev/io#Writer
+// interface. The file content is written as a string to w
+func ReadFile(w io.Writer, n string) {
+	f, err := os.Open(n)
 	if err != nil {
-		panic(err)
+		// Print error and exit
+		log.Fatalf("ReadFile: %s", err)
 	}
 	defer f.Close()
 
 	r := bufio.NewReader(f)
 	b := new(strings.Builder)
 	if _, err = io.Copy(b, r); err != nil {
-		fmt.Println(err)
+		// Print error and exit
+		log.Fatalf("ReadFile: %s", err)
 	}
 
-	fmt.Println(b.String())
+	fmt.Fprintf(w, b.String())
 }
 
 func WriteFile() {
@@ -57,9 +79,11 @@ func WriteFile() {
 }
 
 func main() {
-	ReadFile()
+	ReadFile(os.Stdout, "file.txt")
 
-	WriteFile()
+	// WriteFile()
 
-	ReadUntil()
+	// ReadUntil()
+
+	// ReadScanner()
 }
