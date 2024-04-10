@@ -25,19 +25,23 @@ func ReadScanner() {
 	}
 }
 
-func ReadUntil() {
-	f, err := os.Open("file.txt")
+// ReadUntil uses bufio to read the content of file n
+// and writes it to writer w. It will read until the
+// first occurrence of delimiter d. Any error will be
+// logged using the log library
+func ReadUntil(w io.Writer, n string, d byte) {
+	f, err := os.Open(n)
 	if err != nil {
-		fmt.Println(err)
+		log.Fatalf("ReadUntil: %s", err)
 	}
 	defer f.Close()
 
 	r := bufio.NewReader(f)
-	d, e := r.ReadString('\n')
+	b, e := r.ReadString(d)
 	if e != nil {
-		fmt.Println(e)
+		log.Fatalf("ReadUntil: %s", err)
 	}
-	fmt.Println(d)
+	fmt.Fprintf(w, b)
 }
 
 // ReadFile uses bufio to read the content of the file passed as n
